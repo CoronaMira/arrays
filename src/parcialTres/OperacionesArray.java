@@ -119,7 +119,6 @@ public class OperacionesArray {
     }
 
     private void llenaArregloRecursivoHelper(int[] array, int index) {
-        // Caso base: si el índice es igual a la longitud del arreglo, la recursión termina.
         if (index == array.length) {
             return;
         }
@@ -128,8 +127,6 @@ public class OperacionesArray {
         array[index] = scanner.nextInt();
         llenaArregloRecursivoHelper(array, index + 1);
     }
-
-
 
     public int[] ordenaArregloFormaAscendenteFor(int[] array) {
         if (array == null || array.length == 0) {

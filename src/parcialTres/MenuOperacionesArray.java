@@ -66,9 +66,8 @@ public class MenuOperacionesArray {
                 case 5 -> operacionesArray.ordenaArregloFormaDescendenteFor(arregloUni);
                 case 6 -> operacionesArray.ordenaArregloFormaAscendenteWhile(arregloUni);
                 case 7 -> operacionesArray.ordenaArregloFormaDescendenteWhile(arregloUni);
-                case 8 -> operacionesArray.ordenaTabla(); // Esta es independiente del arreglo principal
-                case 9 -> arregloUni = operacionesArray.eliminarElementoArray(arregloUni);
-                case 10 -> arregloUni = operacionesArray.eliminarTodosElementos(arregloUni);
+                case 8 -> arregloUni = operacionesArray.eliminarElementoArray(arregloUni);
+                case 9 -> arregloUni = operacionesArray.eliminarTodosElementos(arregloUni);
                 case 0 -> System.out.println("Volviendo al menú principal...");
                 default -> System.out.println("Opción inválida.");
             }
@@ -112,9 +111,8 @@ public class MenuOperacionesArray {
         System.out.println("5. Ordenar Descendente (For)");
         System.out.println("6. Ordenar Ascendente (While)");
         System.out.println("7. Ordenar Descendente (While)");
-        System.out.println("8. Crear y ordenar una tabla (Independiente)");
-        System.out.println("9. Eliminar un elemento");
-        System.out.println("10. Eliminar todos los elementos");
+        System.out.println("8. Eliminar un elemento");
+        System.out.println("9. Eliminar todos los elementos");
         System.out.println("0. Volver al menú principal");
         System.out.println("------------------------------------------");
     }

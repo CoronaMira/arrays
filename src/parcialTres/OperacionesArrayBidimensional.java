@@ -6,10 +6,6 @@ import java.util.Scanner;
 public class OperacionesArrayBidimensional {
     static Scanner scanner = new Scanner(System.in);
 
-    /**
-     * Pide al usuario las dimensiones para un arreglo 2D, validando que estén entre 3 y 5.
-     * @return Un arreglo de int con las dimensiones [filas, columnas].
-     */
     private int[] obtenerDimensionesValidas() {
         int rows, cols;
         do {
@@ -31,17 +27,13 @@ public class OperacionesArrayBidimensional {
         return new int[]{rows, cols};
     }
 
-    /**
-     * Imprime una matriz (arreglo 2D) en la consola.
-     * @param matriz La matriz a imprimir.
-     */
-    public void imprimirArreglo(int[][] matriz) {
-        if (matriz == null || matriz.length == 0) {
+    public void imprimirArreglo(int[][] arregloBidimencional) {
+        if (arregloBidimencional == null || arregloBidimencional.length == 0) {
             System.out.println("El arreglo está vacío.");
             return;
         }
         System.out.println("--- Contenido del Arreglo ---");
-        for (int[] fila : matriz) {
+        for (int[] fila : arregloBidimencional) {
             System.out.println(Arrays.toString(fila));
         }
         System.out.println("-----------------------------");
@@ -49,58 +41,58 @@ public class OperacionesArrayBidimensional {
 
     public int[][] llenaArregloFor() {
         int[] dims = obtenerDimensionesValidas();
-        int[][] matriz = new int[dims[0]][dims[1]];
+        int[][] arregloBidimencional = new int[dims[0]][dims[1]];
         System.out.println("Llenando arreglo con bucles FOR:");
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
+        for (int i = 0; i < arregloBidimencional.length; i++) {
+            for (int j = 0; j < arregloBidimencional[i].length; j++) {
                 System.out.print("Ingrese el valor para la posición [" + i + "][" + j + "]: ");
-                matriz[i][j] = scanner.nextInt();
+                arregloBidimencional[i][j] = scanner.nextInt();
             }
         }
-        imprimirArreglo(matriz);
-        return matriz;
+        imprimirArreglo(arregloBidimencional);
+        return arregloBidimencional;
     }
 
     public int[][] llenaArregloWhile() {
         int[] dims = obtenerDimensionesValidas();
-        int[][] matriz = new int[dims[0]][dims[1]];
+        int[][] arregloBidimencional = new int[dims[0]][dims[1]];
         System.out.println("Llenando arreglo con bucles WHILE:");
         int i = 0;
-        while (i < matriz.length) {
+        while (i < arregloBidimencional.length) {
             int j = 0;
-            while (j < matriz[i].length) {
+            while (j < arregloBidimencional[i].length) {
                 System.out.print("Ingrese el valor para la posición [" + i + "][" + j + "]: ");
-                matriz[i][j] = scanner.nextInt();
+                arregloBidimencional[i][j] = scanner.nextInt();
                 j++;
             }
             i++;
         }
-        imprimirArreglo(matriz);
-        return matriz;
+        imprimirArreglo(arregloBidimencional);
+        return arregloBidimencional;
     }
 
     public int[][] llenaArregloRecursivo() {
         int[] dims = obtenerDimensionesValidas();
-        int[][] matriz = new int[dims[0]][dims[1]];
+        int[][] arregloBidimencional = new int[dims[0]][dims[1]];
         System.out.println("Llenando arreglo con RECURSIVIDAD:");
-        llenaArregloRecursivoHelper(matriz, 0, 0);
-        imprimirArreglo(matriz);
-        return matriz;
+        llenaArregloRecursivoHelper(arregloBidimencional, 0, 0);
+        imprimirArreglo(arregloBidimencional);
+        return arregloBidimencional;
     }
 
-    private void llenaArregloRecursivoHelper(int[][] matriz, int fila, int col) {
-        if (fila >= matriz.length) return;
+    private void llenaArregloRecursivoHelper(int[][] arregloBidimencional, int fila, int col) {
+        if (fila >= arregloBidimencional.length) return;
         System.out.print("Ingrese el valor para la posición [" + fila + "][" + col + "]: ");
-        matriz[fila][col] = scanner.nextInt();
-        int siguienteCol = (col + 1) % matriz[fila].length;
+        arregloBidimencional[fila][col] = scanner.nextInt();
+        int siguienteCol = (col + 1) % arregloBidimencional[fila].length;
         int siguienteFila = (siguienteCol == 0) ? fila + 1 : fila;
-        llenaArregloRecursivoHelper(matriz, siguienteFila, siguienteCol);
+        llenaArregloRecursivoHelper(arregloBidimencional, siguienteFila, siguienteCol);
     }
 
 
-    public void ordenaArregloAscendenteFor(int[][] matriz) {
+    public void ordenaArregloAscendenteFor(int[][] arregloBidimencional) {
         System.out.println("Ordenando cada fila de forma ascendente (FOR):");
-        for (int[] fila : matriz) {
+        for (int[] fila : arregloBidimencional) {
             for (int i = 0; i < fila.length - 1; i++) {
                 for (int j = 0; j < fila.length - 1 - i; j++) {
                     if (fila[j] > fila[j + 1]) {
@@ -111,12 +103,12 @@ public class OperacionesArrayBidimensional {
                 }
             }
         }
-        imprimirArreglo(matriz);
+        imprimirArreglo(arregloBidimencional);
     }
 
-    public void ordenaArregloDescendenteFor(int[][] matriz) {
+    public void ordenaArregloDescendenteFor(int[][] arregloBidimencional) {
         System.out.println("Ordenando cada fila de forma descendente (FOR):");
-        for (int[] fila : matriz) {
+        for (int[] fila : arregloBidimencional) {
             for (int i = 0; i < fila.length - 1; i++) {
                 for (int j = 0; j < fila.length - 1 - i; j++) {
                     if (fila[j] < fila[j + 1]) {
@@ -127,12 +119,12 @@ public class OperacionesArrayBidimensional {
                 }
             }
         }
-        imprimirArreglo(matriz);
+        imprimirArreglo(arregloBidimencional);
     }
 
-    public void ordenaArregloAscendenteWhile(int[][] matriz) {
+    public void ordenaArregloAscendenteWhile(int[][] arregloBidimencional) {
         System.out.println("Ordenando cada fila de forma ascendente (WHILE):");
-        for (int[] fila : matriz) {
+        for (int[] fila : arregloBidimencional) {
             boolean swapped;
             int n = fila.length;
             do {
@@ -150,12 +142,12 @@ public class OperacionesArrayBidimensional {
                 n--;
             } while (swapped);
         }
-        imprimirArreglo(matriz);
+        imprimirArreglo(arregloBidimencional);
     }
 
-    public void ordenaArregloDescendenteWhile(int[][] matriz) {
+    public void ordenaArregloDescendenteWhile(int[][] arregloBidimencional) {
         System.out.println("Ordenando cada fila de forma descendente (WHILE):");
-        for (int[] fila : matriz) {
+        for (int[] fila : arregloBidimencional) {
             boolean swapped;
             int n = fila.length;
             do {
@@ -173,34 +165,34 @@ public class OperacionesArrayBidimensional {
                 n--;
             } while (swapped);
         }
-        imprimirArreglo(matriz);
+        imprimirArreglo(arregloBidimencional);
     }
 
 
 
-    public int[][] eliminarElementoArray(int[][] matriz) {
-        if (matriz == null || matriz.length == 0) {
+    public int[][] eliminarElementoArray(int[][] arregloBidimencional) {
+        if (arregloBidimencional == null || arregloBidimencional.length == 0) {
             System.out.println("El arreglo está vacío, no se puede eliminar nada.");
-            return matriz;
+            return arregloBidimencional;
         }
 
         String respuesta;
         do {
-            if (matriz.length == 0) {
+            if (arregloBidimencional.length == 0) {
                 System.out.println("Ya no hay más elementos que eliminar.");
                 break;
             }
 
             System.out.println("Arreglo actual:");
-            imprimirArreglo(matriz);
+            imprimirArreglo(arregloBidimencional);
             System.out.print("Ingrese el elemento que desea eliminar (se reemplazará por 0): ");
             int elementoAEliminar = scanner.nextInt();
 
             boolean encontrado = false;
-            for (int i = 0; i < matriz.length; i++) {
-                for (int j = 0; j < matriz[i].length; j++) {
-                    if (matriz[i][j] == elementoAEliminar) {
-                        matriz[i][j] = 0;
+            for (int i = 0; i < arregloBidimencional.length; i++) {
+                for (int j = 0; j < arregloBidimencional[i].length; j++) {
+                    if (arregloBidimencional[i][j] == elementoAEliminar) {
+                        arregloBidimencional[i][j] = 0;
                         encontrado = true;
                     }
                 }
@@ -213,27 +205,27 @@ public class OperacionesArrayBidimensional {
             }
 
             System.out.println("Arreglo resultante:");
-            imprimirArreglo(matriz);
+            imprimirArreglo(arregloBidimencional);
 
             System.out.print("¿Desea eliminar otro elemento? (s/n): ");
             respuesta = scanner.next();
 
         } while (respuesta.equalsIgnoreCase("s"));
 
-        return matriz;
+        return arregloBidimencional;
     }
 
-    public int[][] eliminarTodosElementos(int[][] matriz) {
-        if (matriz == null || matriz.length == 0) {
+    public int[][] eliminarTodosElementos(int[][] arregloBidimencional) {
+        if (arregloBidimencional == null || arregloBidimencional.length == 0) {
             System.out.println("Advertencia: El arreglo ya está vacío, no hay elementos que eliminar.");
-            return matriz;
+            return arregloBidimencional;
         }
 
         System.out.println("Eliminando todos los elementos del arreglo bidimensional...");
-        matriz = new int[0][0];
+        arregloBidimencional = new int[0][0];
         System.out.println("Todos los elementos han sido eliminados.");
-        imprimirArreglo(matriz);
-        return matriz;
+        imprimirArreglo(arregloBidimencional);
+        return arregloBidimencional;
     }
 
 }
