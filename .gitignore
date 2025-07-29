@@ -22,3 +22,9 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Ignorar archivos específicos de macOS
+.DS_Store
+
+# Ignorar directorio de configuración de JetBrains IDEs (IntelliJ, PyCharm, etc.)
+.idea/
