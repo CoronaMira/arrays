@@ -93,15 +93,28 @@ public class OperacionesArray {
     }
 
     public int[] eliminarTodosElementos(int[] array) {
+
         if (array == null || array.length == 0) {
-            System.out.println("El arreglo ya está vacío. No hay elementos que eliminar.");
+            System.out.println("Advertencia: El arreglo ya está vacío, no hay elementos que eliminar.");
             return array;
         }
 
         System.out.println("Arreglo original: " + Arrays.toString(array));
-        System.out.println("Eliminando todos los elementos...");
-        array = new int[0]; // Se asigna un nuevo arreglo de tamaño 0
+        System.out.println("Eliminando todos los elementos uno por uno...");
+
+        while(array.length > 0) {
+            int[] nuevoArray = new int[array.length - 1];
+            for (int i = 0; i < nuevoArray.length; i++) {
+                nuevoArray[i] = array[i];
+            }
+
+            array = nuevoArray;
+
+            System.out.println("... " + Arrays.toString(array));
+        }
+
         System.out.println("Todos los elementos han sido eliminados. Arreglo resultante: " + Arrays.toString(array));
+
         return array;
     }
 
